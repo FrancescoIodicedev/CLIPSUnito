@@ -2,22 +2,6 @@
 ## Note di sviluppo
 Per caricare tutti i file in contemporanea da terminale scrivere `./clips -f go.bat`
 
-### Strategia 1
-1. Considerare tutte le caselle conosciute inizialmente.
-2. Qualora ci fossero delle caselle boat conosciute (k-cell) :
-    * Se sono sottomarini viene aggiornato il conteggio interno delle navi abbattute aggiungendo il sottomarino in questione.
-    * Se sono top/bottom o left/right si controlla, a seconda dell'orientamento, il numero N di navi presenti nella riga/colonna. Vengono segnate con guess le N-1 (tale che N-1 <= 3) caselle successive, sempre tenendo conto dell'orientamento della nave.
-    * Se invece si tratta di parti middle si analizza se sono presenti più navi nella riga o nella colonna. Si seleziona il numero più alto, e vengono distribuite le guess in modo uniforme a sinistra/destra o sopra/sotto a seconda della scelta precedente (1 da una parte e una dall'altra).
-    *Una volta finite le k-cell con navi si procedere al punto 3.
-3. Qualora non ci fossero delle caselle boat conosciute:
-    * Si scelgono le coordinate x e y tali che il numero di navi sulla rispettiva riga/colonna sia > 3. Dopo aver determinato i valori delle variabili, viene eseguita una fire con quelle coordinate. Se la fire trova una nave, si  ritorna al punto 2. Se non trova nessuna nave, si passa  alla coppia riga/colonna con valori > 3 successiva. Si continua finché non si finiscono le Fire o non si trova un'altra nave.
-
-4. Qualora termineranno le guess a disposizione, ma sono presenti ancora delle k-cell non analizzate scoperte tramite la fire, allora viene eseguita una Unguess sulla casella intersezione riga/colonna con meno navi per permettere di continuare con la nave appena scoperta.
-5. Al termine delle Fire si decide di concludere il gioco, per evitare di perdere ulteriori punti a causa di troppe Guess errate.
-
-        
-
-
 ## Progetto
 L’obiettivo del progetto è quello di sviluppare un sistema esperto che giochi ad una versione semplificata della famigerata Battaglia Navale.
 Il gioco è nella versione “in-solitario”, per cui c’è un solo giocatore (il vostro sistema esperto) che deve indovinare la posizione di una flotta di navi distribuite su una griglia 10x10.
