@@ -1,0 +1,10 @@
+(load 0_Main.clp)
+(load 1_Env.clp)
+(load  map4.clp)
+(load 3_Agent.clp)
+(reset)
+(watch rules)
+(set-strategy breadth)
+(run)
+(focus AGENT)
+

@@ -1,6 +1,6 @@
 # IALab1920
 ## Note di sviluppo
-Per caricare tutti i file in contemporanea da terminale scrivere `./clips -f go.bat`
+Per caricare tutti i file in contemporanea da terminale scrivere `./clips -f go.txt`
 
 ### Strategia 1
 1. Considerare tutte le caselle conosciute inizialmente.
