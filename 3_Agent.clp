@@ -100,7 +100,7 @@
     (k-cell (x ?x) (y ?y) (content bot) )
     (k-per-col (col ?y) (num ?num&:(> ?num 2)))
     (not (kVisited (x ?x) (y ?y)))
-    ?b <- (boat (name ?name & cacciaT) (num ?nb&:(> ?nb 0))) ; se ci sono ancora barche da 3 disponibili	
+    ?b <- (boat (name ?name & incrociatore) (num ?nb&:(> ?nb 0))) ; se ci sono ancora barche da 3 disponibili	
 =>
     (assert (exec (step ?s) (action guess) (x (- ?x 1)) (y ?y)))
     (assert (exec (step (+ ?s 1)) (action guess) (x (- ?x 2)) (y ?y)))
@@ -283,7 +283,7 @@
     (k-cell (x ?x) (y ?y) (content middle))
     (k-per-col (col ?y) (num ?numCol&:(> ?numCol 2)))
     (k-per-row (row ?x) (num ?numRow&:(> ?numCol ?numRow)))
-    (not (kVisited (x ?x) (y ?y))
+    (not (kVisited (x ?x) (y ?y)))
     ?b <- (boat (name ?name & cacciaT) (num ?nb&:(> ?nb 0))) ; se ci sono ancora barche da 3 disponibili
 =>
     (assert (exec (step ?s) (action guess) (x (+ ?x 1)) (y ?y)))
@@ -295,7 +295,7 @@
     (pop-focus)
 )
 
-se trovo una mid ma non sono sicuro dell'orientamento
+;se trovo una mid ma non sono sicuro dell'orientamento
 (defrule guessMid(declare (salience 5))
     (status (step ?s)(currently running))
     (moves (guesses ?ng&:(> ?ng 0)))
